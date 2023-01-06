@@ -22,10 +22,10 @@ public class BinarySearch {
 
 
     //regular iterative binarySearch, returns index if found, else -1;
-    public static int binarySearchIt(int[] A, int b) {
+    public static int binarySearchIt(int[] A, int b, int start, int end) {
         int n = A.length;
-        int l = 0;
-        int r = n-1;
+        int l = start;
+        int r = end-1;
 
         while (l <= r) {
             int mid = (l+r)/2;
@@ -47,10 +47,10 @@ public class BinarySearch {
 
 
     //iterative binarySearch, returns index if found, else returns index of next closest element in array
-    public static int binarySearchClosestIt(int[] A, int b) {
+    public static int binarySearchClosestIt(int[] A, int b, int start, int end) {
         int n = A.length;
         int l = 0;
-        int r = n-1;
+        int r = end-1;
         int mid = 0;
 
         if (A[0] >= b) {
