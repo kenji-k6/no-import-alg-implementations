@@ -61,4 +61,60 @@ public class MergeSort {
 
 
     }
+
+
+    public static void mergeStry(int[] A, int left, int right) {
+        if (left < right) {
+            int middle = (left+right)/2;
+            mergeStry(A, left, middle);
+            mergeStry(A, middle+1, right);
+            mergetry(A, left, middle, right);
+        }
+    }
+
+    public static void mergetry(int[] A, int left, int middle, int right) {
+        int nL = middle-left+1;
+        int nR = right-middle;
+
+        int[] L = new int[nL];
+        int[] R = new int[nR];
+
+        for (int i = 0; i < nL; i++) {
+            L[i] = A[left+i];
+        }
+        for (int j = 0; j < nR; j++) {
+            R[j] = A[middle+j+1];
+        }
+
+        int i = 0;
+        int j = 0;
+        int k = left;
+
+        while (i < nL && j < nR) {
+            if (L[i] <= R[j]) {
+                A[k] = L[i];
+                i++;
+            }else{
+                A[k] = R[j];
+                j++;
+            }
+            k++;
+        }
+
+        while (i < nL) {
+            A[k] = L[i];
+            i++;
+            k++;
+        }
+        while (j < nR) {
+            A[k] = R[j];
+            j++;
+            k++;
+        }
+    }
+
+
+
+
+
 }

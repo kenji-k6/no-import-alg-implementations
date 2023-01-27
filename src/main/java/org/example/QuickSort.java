@@ -29,4 +29,30 @@ public class QuickSort {
         A[i] = A[j];
         A[j] = temp;
     }
+
+    public static void quickTry(int[] A, int left, int right) {
+        if (left < right) {
+            int k = splittry(A, left, right);
+            quickTry(A, left, k-1);
+            quickTry(A, k+1, right);
+        }
+    }
+
+
+    public static int splittry(int[] A, int left, int right) {
+        int p = A[right];
+        int i = left-1;
+
+        for (int j = left; j < right; j++) {
+            if (A[j]  < p) {
+                i++;
+                swap(A, i, j);
+            }
+        }
+        swap (A, i+1, right);
+        return i+1;
+    }
+
+
+
 }
